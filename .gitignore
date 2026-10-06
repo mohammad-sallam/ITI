@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-ITI/*/*.out
-=======
 *.out
->>>>>>> 549fa53 (Add .gitignore)
+*.swp
+*.swo

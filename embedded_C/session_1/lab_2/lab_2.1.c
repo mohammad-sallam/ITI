@@ -1,7 +1,6 @@
 #include <stdio.h>
-
-void validateIntegerInput(int * digit);
-void validateCharInput(char * letter);
+#include <ctype.h>
+#include "user_input_helpers.h"
 
 int main(void) {
 	int rangeStart, rangeEnd;
@@ -20,19 +19,20 @@ int main(void) {
 	}
 
 	do {
-		printf("Even or Odd? (E/O): ");
+		printf("Even or Odd? (E/o): ");
 		validateCharInput(&selection);
-	} while(selection != 'E' && selection != 'O');
+		selection = tolower(selection);
+	} while(selection != 'e' && selection != 'o');
 	
 	switch(selection) {
-		case 'E':
+		case 'e':
 			for(int i = rangeStart; i <= rangeEnd; i++) {
 				if(i % 2 == 0) {
 					printf("%i ", i);
 				}
 			}
 			break;
-		case 'O':
+		case 'o':
 			
 			for(int i = rangeStart; i <= rangeEnd; i++) {
 				if(i % 2 != 0) {
@@ -42,21 +42,4 @@ int main(void) {
 			break;
 	}
 	return 0;
-}
-
-void validateIntegerInput(int * digit) {
-	while(scanf(" %d", digit)==0) {
-		printf("Please enter a valid integer.\n");
-		int c;
-		while((c=getchar())!='\n' && c!=EOF);
-	}	
-}
-
-void validateCharInput(char * letter) {
-
-	while(scanf(" %c", letter)==0) {
-		printf("Please enter a valid character.\n");
-		int c;
-		while((c=getchar())!='\n' && c!=EOF);
-	}	
 }

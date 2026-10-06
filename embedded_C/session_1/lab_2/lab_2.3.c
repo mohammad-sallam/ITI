@@ -2,17 +2,16 @@
 #include "user_input_helpers.h"
 
 int main(void) {
-	int num, factorial = 1;
+	int num;
 
 	do {
 		printf("enter number: ");
 		validateIntegerInput(&num);
 	} while(num < 0);
 
-	for(int i = 2; i <= num; i++) {
-		factorial = factorial *i;
+	for(int i = 0; i <= 10; i++) {
+		printf("%i x %i = %i\n", num, i, num*i); 
 	}
-	printf("factorial of %d = %d\n", num, factorial);
 
 	return 0;
 }
